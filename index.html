@@ -3,13 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="images/icon.jpg">
+    <meta name="description" content="Tudo Bem? - A short film" />
     <meta name="author" content="PedroMusik" />
-    <title>TUDO BEM</title>
-    <style>
-        * { 
-            box-sizing: border-box; 
-        }
 
+    <title>TUDO BEM</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
         body {
             background: #000;
             color: #fff;
@@ -26,87 +29,139 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 25px; /* Space between the image and links */
+            gap: 25px;
             padding: 20px;
-            max-width: 100%;
-            max-height: 100%;
-        }
-
-        .image-container {
-            max-width: 100%;
-            /* Reduce max-height to make space for the links */
-            max-height: 80vh; 
+            width: 100%;
         }
 
         .image-container img {
             display: block;
-            max-width: 100%;
-            max-height: 80vh; /* Matches the container's max-height */
+            width: 100%;
+            max-height: 95vh;   
+            height: auto;
             object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .video-container video {
+            width: 100%;
+            border-radius: 12px;
+            background: transparent;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .control-btn {
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #fff;
+            font-size: 22px;
+            transition: background 0.3s;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .social-links {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px; /* Space between icons */
+            gap: 40px;
         }
 
         .social-links a {
             color: #fff;
-        }
-
-        .social-links svg {
-            width: 30px;
-            height: 30px;
-            fill: currentColor;
-            opacity: 0.6; /* Slightly transparent by default */
+            font-size: 30px;
+            opacity: 0.6;
             transition: opacity 0.2s ease-in-out;
         }
 
-        .social-links a:hover svg,
-        .social-links a:focus svg {
-            opacity: 1; /* Fully opaque on hover/focus for better visibility */
-        }
-
-
-        @media (max-width: 600px) {
-            .main-content {
-                gap: 20px;
-            }
-
-            .social-links svg {
-                /* Make icons slightly larger for easier tapping on mobile */
-                width: 35px; 
-                height: 35px;
-            }
+        .social-links a:hover,
+        .social-links a:focus {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <main class="main-content" role="main" aria-label="Main Content">
-        
+    <main class="main-content container text-center" role="main" aria-label="Main Content">
         <div class="image-container">
             <picture>
                 <source media="(max-width: 600px)" srcset="images/TUDOBEM.promo.MUPI.02.png">
                 <img src="images/TUDOBEM.promo.IGPOST.02.png" alt="Tudo bem? poster" loading="eager">
             </picture>
         </div>
-        
-        <nav class="social-links" aria-label="Social media links">
-            <a href="https://www.instagram.com/tudobemfilm/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-2.163C8.74 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.74 0 12s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.74 24 12 24s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98C23.986 15.667 24 15.26 24 12s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98C15.667.014 15.26 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+        <div class="video-container">
+            <video id="promo-video" autoplay loop playsinline muted>
+                <source src="images/TrailerFinal.mp4" type="video/mp4">
+                O teu navegador não suporta vídeos em HTML5. 
+            </video>
+        </div>
+        <div class="controls">
+            <button class="control-btn" id="play-pause-toggle" aria-label="Play or pause video">
+                <i class="fas fa-pause"></i>
+            </button>
+            <button class="control-btn" id="mute-toggle" aria-label="Mute or unmute video">
+                <i class="fas fa-volume-mute"></i>
+            </button>
+        </div>
+        <nav class="social-links mt-4" aria-label="Social media links">
+            <a href="https://www.instagram.com/tudobemfilm/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
             </a>
-
-            <a href="https://www.youtube.com/channel/UCpYZYOuffRvIzeO45Ek2C5A" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <a href="https://www.youtube.com/@TudoBemFilm" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
             </a>
-            
+            <a href="https://www.tiktok.com/@tudobemfilm" target="_blank" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
             <a href="mailto:youokmovie@gmail.com" aria-label="Email">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                <i class="fas fa-envelope"></i>
             </a>
         </nav>
-
     </main>
+    <script>
+        const video = document.getElementById("promo-video");
+        const muteBtn = document.getElementById("mute-toggle");
+        const muteIcon = muteBtn.querySelector("i");
+        muteBtn.addEventListener("click", () => {
+            video.muted = !video.muted;
+            if (video.muted) {
+                muteIcon.classList.replace("fa-volume-up", "fa-volume-mute");
+            } else {
+                muteIcon.classList.replace("fa-volume-mute", "fa-volume-up");
+                video.play();
+            }
+        });
+        const playPauseBtn = document.getElementById("play-pause-toggle");
+        const playPauseIcon = playPauseBtn.querySelector("i");
+        playPauseBtn.addEventListener("click", () => {
+            if (video.paused) {
+                video.play();
+                playPauseIcon.classList.replace("fa-play", "fa-pause");
+            } else {
+                video.pause();
+                playPauseIcon.classList.replace("fa-pause", "fa-play");
+            }
+        });
+    </script>
 </body>
 </html>
